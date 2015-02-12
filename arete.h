@@ -3,8 +3,8 @@ using namespace std; // Toutes les fonctions de la librairie std s'appellent en 
 
 class arete{
 public:
-	arete(); // Pour la declaration du tableau
-	arete(int u,int v,int w);
+	arete(); // Constructeur vide, necessaire pour allouer dynamiquement un tableau d'aretes
+	arete(int u,int v,int w); // Chaque arete est definie par 3 entiers: son sommet initial, son sommet terminal, et sa longueur
 	~arete();
 
 private:
