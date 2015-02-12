@@ -1,6 +1,7 @@
 # include <iostream>
-# include <fstream>
+# include <fstream> 
 # include "graph.h"
+// On a besoin de iostream et de fstream car on va devoir demander des inputs ˆ l'utilisateur par le terminal de commande (utilisation de iostream) et on va devoir acceder ˆ un fichier (utilisation de fstream pour acceder ˆ data.txt)
 
 
 int nbligne (const string & nomf) {
@@ -49,7 +50,7 @@ void graph::dijkstra(int s){ // Algorithme pour trouver les distances depuis le 
 	bool * U = new bool [nbsommet];
 	for(int i =0; i<nbsommet; i++) U[i]=true;
 	
-/*******  COEUR de L'ALGORITHME **************/
+/*******  BOUCLE TANT QUE DE L'ALGORITHME **************/
 	bool test=true;
 	while(test){
 		// 1) Trouver un sommet de u de U minimisant f(u) et vérifier la condition d'arêt de la boucle while: U est vide
@@ -64,9 +65,9 @@ void graph::dijkstra(int s){ // Algorithme pour trouver les distances depuis le 
 		}
 		// 2) Mettre à jour la fonction f(.) et l'arborescence dans le voisinage de u:
 		for(int i =0; i<nbarete; i++)
-			if(tableau_arete[i].sommet_initial-1==u && f[tableau_arete[i].sommet_terminal-1]>f[u]+tableau_arete[i].poids)
+			if(tableau_arete[i].sommet_initial-1==u && f[tableau_arete[i].sommet_terminal-1]>f[u]+tableau_arete[i].longueur)
 			{
-				f[tableau_arete[i].sommet_terminal-1]=f[u]+tableau_arete[i].poids;
+				f[tableau_arete[i].sommet_terminal-1]=f[u]+tableau_arete[i].longueur;
 				arb[tableau_arete[i].sommet_terminal-1]=u+1;
 			}
 		// 3) Mettre à jour l'ensemble U (sortir u de U)

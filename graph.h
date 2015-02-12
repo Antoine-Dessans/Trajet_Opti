@@ -1,5 +1,3 @@
-#ifndef _graph_H
-#define _graph_H
 #include <iostream>
 #include "arete.h"
 # include <string>
@@ -19,5 +17,3 @@ private:
 	int * arb;  // Tableau modélisant l'arborescence des plus courts chemins: arb(v) est le sommet précedent v dans le plus court chemin de s à v
 	static const int INFTY=10000;
 };
-#endif
-
